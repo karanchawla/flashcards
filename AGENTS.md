@@ -122,8 +122,15 @@ at `http://localhost:8000`. Finish the session or click End to save progress
 before stopping it. Restart to load edited cards.
 
 Cards are identified by their contents, so editing a card resets its progress.
-Avoid cosmetic rewrites. Review history lives in `cards/hashcards.db` and is
-ignored by Git; leave it alone unless I ask for a reset.
+Avoid cosmetic rewrites. Review history lives in `cards/hashcards.db`, which
+is tracked in Git so progress can move between computers. Finish the session
+and stop Hashcards before committing the database. SQLite journal, WAL, and
+SHM files are temporary and remain ignored; checkpoint any WAL before taking
+a snapshot. Do not reset the database unless I ask.
+
+Pull before studying on another computer, then commit and push saved progress
+before switching back. Study on one computer at a time: Git cannot merge
+independent changes to the database.
 
 # Scope and Git
 

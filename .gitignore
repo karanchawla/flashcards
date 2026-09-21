@@ -1,2 +1,4 @@
 .DS_Store
-cards/hashcards.db*
+cards/hashcards.db-wal
+cards/hashcards.db-shm
+cards/hashcards.db-journal
